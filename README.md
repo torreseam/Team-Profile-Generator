@@ -61,4 +61,4 @@ Combined various NPMs such as inquirer, fs, chalk and the use of Classes and Con
 
   ## Link
 
-    https://github.com/torreseam/Team-Profile-Generator.git
+  - [GitHub Repo](https://github.com/torreseam/Team-Profile-Generator.git)

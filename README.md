@@ -1,7 +1,6 @@
-```
-Team-Profile-Generator
 
-```
+# Team-Profile-Generator
+
 ## Description
 
 This assignment was created with the components introduced in Object Oriented Programming (OOP).
@@ -62,4 +61,4 @@ Combined various NPMs such as inquirer, fs, chalk and the use of Classes and Con
 
   ## Link
 
-    - https://github.com/torreseam/Team-Profile-Generator.git
+    https://github.com/torreseam/Team-Profile-Generator.git

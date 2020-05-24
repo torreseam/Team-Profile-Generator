@@ -3,9 +3,7 @@ const fs = require("fs");
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
-
-// const writeHTML = require('./lib/generateHTML');
-// const { writeFile, copyFile } = require('./utils/generate-site.js');
+const writeHTML = require("./output")
 
 newEmp = [];
 
@@ -39,19 +37,23 @@ const startPrompt = () => {
         chooseMemberType();
     })
 }
+
 const chooseMemberType = () => {
     return inquirer.prompt([
         {
             type: "list",
             name: "teamMemberType",
             message: "Which type of team member would you like to add?",
-            choices: ["Engineer", "Intern", "I don't want to add any more team members"]
+            choices: ["Engineer", "Intern", "Employee", "I don't want to add any more team members"]
         },
     ]).then(function (answer) {
         if (answer.teamMemberType === "Intern") {
             InternPrompt();
         }
         else if (answer.teamMemberType === "Engineer") {
+            EngineerPrompt();
+        }
+        else if (answer.teamMemberType === "Employee") {
             EngineerPrompt();
         }
         else if (answer.teamMemberType === "I don't want to add any more team members") {
@@ -120,6 +122,35 @@ const EngineerPrompt = () => {
         chooseMemberType();
     })
 }
+const EmployeePrompt = () => {
+    return inquirer.prompt([
+        {
+            type: "input",
+            name: "engName",
+            message: "What is the employeee name?"
+        },
+        {
+            type: "input",
+            name: "engId",
+            message: "What is the employee id?"
+        },
+        {
+            type: "input",
+            name: "engEmail",
+            message: "What is the employee email?"
+        },
+        {
+            type: "input",
+            name: "managerOfficeNo",
+            message: "What is the employee telephone number?"
+        },
+    ]).then(function (answer) {
+        const addEmployee = new Employee(answer.engName, answer.engId, answer.engEmail, answer.engGithub)
+        // console.log(addEmployee)
+        newEmp.push(addEmployee)
+        chooseMemberType();
+    })
+}
 
 function renderHTML() {
     fs.writeFile(outputPath, render(newEmp), function (err, data) {
@@ -131,4 +162,3 @@ function renderHTML() {
 }
 
 startPrompt();
-

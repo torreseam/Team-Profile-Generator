@@ -15,7 +15,7 @@ Combined various NPMs such as inquirer, fs, chalk and the use of Classes and Con
   - [License](#license)
   - [Contributors](#contributors)
   - [Link to Deployed Application](#link)
-  - [Questions](#questions)
+
 
   ## Installation
 
@@ -35,7 +35,7 @@ Combined various NPMs such as inquirer, fs, chalk and the use of Classes and Con
 
     MIT License
 
-  Copyright (c) [2020] [Edgar Torres]
+  Copyright (c) 2020 Edgar Torres
 
   Permission is hereby granted, free of charge, to any person obtaining a copy
   of this software and associated documentation files (the "Software"), to deal

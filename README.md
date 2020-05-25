@@ -23,9 +23,12 @@ Combined various NPMs such as inquirer, fs, chalk and the use of Classes and Con
   - Run Command: npm install --save-dev jest
 
 
-  ## Tests
+  ## Tests Screenshots
 
   - Run Command: npm run test
+  ![Test Fail and Pass](./src/failedtest.PNG)
+
+  ![Inquirer Questions](./src/HTMLGenerator.PNG)
 
   ## Usage
 

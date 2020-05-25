@@ -10,7 +10,7 @@ Combined various NPMs such as inquirer, fs, chalk and the use of Classes and Con
   ## Table of Contents
 
   - [Installation](#installation)
-  - [Testing](#tests Screenshots)
+  - [Testing](#tests)
   - [Usage](#usage)
   - [License](#license)
   - [Contributors](#contributors)
@@ -23,7 +23,7 @@ Combined various NPMs such as inquirer, fs, chalk and the use of Classes and Con
   - Run Command: npm install --save-dev jest
 
 
-  ## Tests Screenshots
+  ## Tests
 
   - Run Command: npm run test
   ![Test Fail and Pass](./src/failedtest.PNG)

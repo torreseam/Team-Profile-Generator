@@ -58,7 +58,7 @@ const chooseMemberType = () => {
             EngineerPrompt();
         }
         else if (answer.teamMemberType === "I don't want to add any more team members") {
-            // generateHTML(chooseMemberType);
+            generateHTML(chooseMemberType);
         }
     })
 }

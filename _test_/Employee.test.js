@@ -13,13 +13,6 @@ test("create name via const argument", () => {
     expect(employee.name).toBe(name);
 });
 
-// test constructor id argument
-// test('accept id argument via constructor', () => {
-//     const empId = 100;
-//     const employee = new Employee("Eddie", empId);
-//     expect(employee.empId).toBe(empId);
-// });
-
 //test email arugment 
 test("Set email via constructor argument", () => {
     const email = "email@email.com";

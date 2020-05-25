@@ -5,7 +5,7 @@ test("should return engineer", () => {
     const eng = new Engineer();
 });
 
-test("Can set GitHUb account via constructor", () => {
+test("Can set GitHub account via constructor", () => {
     const name = " Mike Jones";
     const eng = new Engineer(name, 1, "email@email.com", "Mike");
     expect(eng.name).toBe(name);

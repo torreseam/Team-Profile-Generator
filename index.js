@@ -1,9 +1,10 @@
 const inquirer = require("inquirer");
-const fs = require("fs");
+// const fs = require("fs");
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
-const writeHTML = require("./output")
+// const render = require("./dist/genereatehtml")
+const renderHTML = require("./dist/generateHTML");
 
 newEmp = [];
 
@@ -57,7 +58,7 @@ const chooseMemberType = () => {
             EngineerPrompt();
         }
         else if (answer.teamMemberType === "I don't want to add any more team members") {
-            renderHTML();
+            // generateHTML(chooseMemberType);
         }
     })
 }
@@ -66,7 +67,7 @@ const InternPrompt = () => {
     return inquirer.prompt([
         {
             type: "input",
-            name: "intName",
+            name: "name",
             message: "What is your intern's name?"
         },
         {
@@ -88,7 +89,6 @@ const InternPrompt = () => {
         const addIntern = new Intern(answer.intName, answer.intId, answer.intEmail, answer.intSchool)
         // console.log(addIntern)
         newEmp.push(addIntern)
-        // console.log(newEmp)
         chooseMemberType();
     })
 }
@@ -152,13 +152,15 @@ const EmployeePrompt = () => {
     })
 }
 
-function renderHTML() {
-    fs.writeFile(outputPath, render(newEmp), function (err, data) {
-        if (err) {
-            console.error(err)
-            return
-        }
-    })
+function finishPrompt() {
+    console.log("Page created! Check out html in output directory to see it!")
 }
+
+// function renderHTML() {
+//     fs.writeFile("./output/manager.html", render(newEmp),"utf8", err => {
+//         if (err) throw new Error(err);
+//         console.log("Page created! Check out html in output directory to see it!")
+//         });
+// }
 
 startPrompt();

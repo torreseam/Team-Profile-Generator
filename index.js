@@ -1,10 +1,15 @@
 const inquirer = require("inquirer");
-// const fs = require("fs");
+const fs = require("fs");
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
-// const render = require("./dist/genereatehtml")
-const renderHTML = require("./dist/generateHTML");
+const path = require("path");
+// const render = require("./")
+
+const render = require("./lib/htmlRenderer");
+const output_DIR = path.resolve(__dirname, "output");
+const outputPath = path.join(output_DIR, "team.html");
+console.log(Manager)
 
 newEmp = [];
 
@@ -31,6 +36,7 @@ const startPrompt = () => {
             message: "What is your manager's office number?"
         },
     ]).then(function (answer) {
+        console.log(answer)
         const addManager = new Manager(answer.managerName, answer.managerId, answer.managerEmail, answer.managerOfficeNo)
         // console.log(addManager)
         newEmp.push(addManager)
@@ -58,7 +64,7 @@ const chooseMemberType = () => {
             EngineerPrompt();
         }
         else if (answer.teamMemberType === "I don't want to add any more team members") {
-            generateHTML(chooseMemberType);
+            renderHTML();
         }
     })
 }
@@ -122,45 +128,46 @@ const EngineerPrompt = () => {
         chooseMemberType();
     })
 }
-const EmployeePrompt = () => {
-    return inquirer.prompt([
-        {
-            type: "input",
-            name: "engName",
-            message: "What is the employeee name?"
-        },
-        {
-            type: "input",
-            name: "engId",
-            message: "What is the employee id?"
-        },
-        {
-            type: "input",
-            name: "engEmail",
-            message: "What is the employee email?"
-        },
-        {
-            type: "input",
-            name: "managerOfficeNo",
-            message: "What is the employee telephone number?"
-        },
-    ]).then(function (answer) {
-        const addEmployee = new Employee(answer.engName, answer.engId, answer.engEmail, answer.engGithub)
-        // console.log(addEmployee)
-        newEmp.push(addEmployee)
-        chooseMemberType();
-    })
-}
+// const EmployeePrompt = () => {
+//     return inquirer.prompt([
+//         {
+//             type: "input",
+//             name: "engName",
+//             message: "What is the employeee name?"
+//         },
+//         {
+//             type: "input",
+//             name: "engId",
+//             message: "What is the employee id?"
+//         },
+//         {
+//             type: "input",
+//             name: "engEmail",
+//             message: "What is the employee email?"
+//         },
+//         {
+//             type: "input",
+//             name: "managerOfficeNo",
+//             message: "What is the employee telephone number?"
+//         },
+//     ]).then(function (answer) {
+//         const addEmployee = new Employee(answer.engName, answer.engId, answer.engEmail, answer.engGithub)
+//         // console.log(addEmployee)
+//         newEmp.push(addEmployee)
+//         chooseMemberType();
+//     })
+// }
 
 function finishPrompt() {
     console.log("Page created! Check out html in output directory to see it!")
 }
 
-// function renderHTML() {
-//     fs.writeFile("./output/manager.html", render(newEmp),"utf8", err => {
-//         if (err) throw new Error(err);
-//         console.log("Page created! Check out html in output directory to see it!")
-//         });
-// }
+function renderHTML() {
+    // fs.writeFile(outpu, render(newEmp),"utf8", err => {
+    fs.writeFile(outputPath, render(newEmp), function ( err, data) {
+        if (err) throw new Error(err);
+        console.log("Page created! Check out html in output directory to see it!")
+        });
+}
 
 startPrompt();

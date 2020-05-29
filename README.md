@@ -28,12 +28,16 @@ Combined various NPMs such as inquirer, fs, chalk and the use of Classes and Con
   - Run Command: npm run test
   ![Test Fail and Pass](./src/failedtest.PNG)
 
-  - Run Index.js
+  - Run node index.js
 
   ![Inquirer Questions](./src/HTMLGenerator.PNG)
 
-  - Functionality Video
-   (https://drive.google.com/file/d/165GCN8Nz8geoIE7DQlg_uXzQU7xkBUTa/view)
+  - Node index.js browser results
+
+  ![HTMLPage](./src/Browserpg.PNG)
+
+  - Functionality Video Link
+   (https://drive.google.com/file/d/1Kc87RD7flCFgiyzBhm23C4yIzD1Wl-Sd/view)
 
 
   ## Usage
